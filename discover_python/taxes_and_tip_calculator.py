@@ -30,7 +30,7 @@ tip = tip / 100
 total = meal + meal * tip
 
 #prints total
-print "The prince you need to pay is: " +str(total)
+print "The price you need to pay is: " +str(total)
 
 #returns screen to terminal
 raw_input('Press enter to quit...')

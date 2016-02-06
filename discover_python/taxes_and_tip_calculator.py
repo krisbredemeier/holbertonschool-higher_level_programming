@@ -5,6 +5,7 @@ os.system('clear')
 """This is a tip calculator for meals
 written by Kris Bredemeier"""
 
+#opeing line
 print("Welcome to the taxs and tip calculator!")
 
 #accounts for price of meal
@@ -31,6 +32,7 @@ total = meal + meal * tip
 #prints total
 print "The prince you need to pay is: " +str(total)
 
+#returns screen to terminal
 raw_input('Press enter to quit...')
 
 #clear the screen

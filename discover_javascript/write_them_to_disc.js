@@ -16,10 +16,8 @@ var req = https.get(options, function(res) {
    });
   res.on('end', () => {
     var jsonString = chunks.join('');
-  });
-});
-  var fs = require('fs');
-  fs.writeFile('/tmp/32', 'jsonString', function(err) {
+      var fs = require('fs');
+  fs.writeFile("/tmp/34", jsonString, function(err) {
     if(err) {
       return console.log(err);
     }
@@ -27,4 +25,5 @@ var req = https.get(options, function(res) {
 });
 
 
-
+  });
+});

@@ -10,7 +10,6 @@ var options = {
 };
 const chunks = [];
 var req = https.get(options, function(res) {
-  console.log(res.statusCode);
   res.on('data', (chunk) => {
      chunks.push(chunk);
    });

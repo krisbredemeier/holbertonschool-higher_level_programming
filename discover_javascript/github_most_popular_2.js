@@ -19,9 +19,7 @@ var req = https.request(options, function(res) {
     console.log(jsonString);
   });
 });
-
 req.end();
 req.on('error', function(e) {
   console.error(e);
 });
-

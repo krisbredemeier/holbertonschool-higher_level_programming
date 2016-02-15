@@ -22,7 +22,5 @@ var req = https.get(options, function(res) {
     }
     console.log("The file was saved!");
 });
-
-
   });
 });

@@ -10,4 +10,4 @@ extheaders = {
 clnt = HTTPClient.new
 file = clnt.get_content('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')
 parsed = JSON.parse(file)
-parsed ["items"].map {|e| puts e["full_name"]}
+parsed ["items"].map {|e| puts e["full_name"]}.join

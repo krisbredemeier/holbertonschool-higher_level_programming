@@ -10,7 +10,8 @@ request_headers = {
 
 def printResults(data):
     theJSON = json.loads(data)
-    print theJSON
+    for item in theJSON["items"]:
+        print item["full_name"]
 
 def main():
     urlData = "https://api.github.com/search/repositories?q=language:python&sort=stars&order=desc"

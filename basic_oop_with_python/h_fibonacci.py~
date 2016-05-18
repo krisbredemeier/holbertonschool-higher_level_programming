@@ -1,6 +1,3 @@
-'''
- function fibonacci(x) that computes the fibonacci number of the parameter
-'''
 def fibonacci(x):
     if x == 0:
         return 0

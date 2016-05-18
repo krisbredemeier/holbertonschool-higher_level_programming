@@ -18,4 +18,4 @@ class Circle():
         self.__center = center
         
     def area(self):
-        return math.pi*self.__radius*self.__radius     
+        return 3.14*self.__radius*self.__radius     

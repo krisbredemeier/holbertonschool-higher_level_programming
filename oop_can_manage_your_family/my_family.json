@@ -1,0 +1,52 @@
+[{
+	"date_of_birth": [
+		10,
+		10,
+		2010
+	],
+	"first_name": "Betty",
+	"last_name": "Holberton",
+	"is_married_to": 0,
+	"eyes_color": "Green",
+	"genre": "Female",
+	"id": 1,
+	"kind": "Adult",
+	"children": [
+		1,
+		2
+	]
+}, {
+	"date_of_birth": [
+		12,
+		12,
+		1912
+	],
+	"first_name": "Kris",
+	"last_name": "Bredemeier",
+	"is_married_to": 0,
+	"eyes_color": "Green",
+	"genre": "Female",
+	"id": 2,
+	"kind": "Teenager",
+	"children": [
+		1,
+		2
+	]
+}, {
+	"date_of_birth": [
+		4,
+		4,
+		1944
+	],
+	"first_name": "Jon",
+	"last_name": "Wendell",
+	"is_married_to": 0,
+	"eyes_color": "Blue",
+	"genre": "Male",
+	"id": 3,
+	"kind": "Adult",
+	"children": [
+		1,
+		2
+	]
+}]

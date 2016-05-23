@@ -1,3 +1,4 @@
+//  compute the Fibonacci number
 func fibonacci(number: Int) -> Int {
     if number <= 2 {
         return 1

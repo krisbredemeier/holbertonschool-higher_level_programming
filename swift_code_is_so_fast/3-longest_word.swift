@@ -1,3 +1,4 @@
+// find the first longest word in a text
 func longest_word(text: String) -> (String) {
 my_text += " "
 var word = ""

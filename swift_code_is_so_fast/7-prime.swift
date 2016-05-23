@@ -1,3 +1,5 @@
+//  search if the number is prime or not
+
 func divides(a: Int, _ b: Int) -> Bool {
     return a % b == 0
 }

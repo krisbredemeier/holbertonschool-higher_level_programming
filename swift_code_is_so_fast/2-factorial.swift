@@ -1,3 +1,4 @@
+// compute the Factorial number
 func factorial(N: Int) -> (Int) {
     if (N <= 1) {
         return 1

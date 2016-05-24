@@ -1,3 +1,6 @@
+//: Playground - noun: a place where people can play
+
+
 var str = "Hello, playground"
 
 class Person{
@@ -31,7 +34,7 @@ protocol Classify {
 
 class Mentor: Person, Classify {
 
-    var subject: Subject
+    let subject: Subject
 
     init(first_name: String, last_name: String, age: Int, subject: Subject) {
         self.subject = subject
@@ -45,18 +48,19 @@ class Mentor: Person, Classify {
 
     func stringSubject() -> String
     {
-        var theSubject:Subject
-        theSubject = .French
-        switch theSubject {
-        case .Math:
-            return ("Math")
-        case .English:
-            return ("English")
-        case .French:
-            return ("French")
-        case .History:
-            return ("History")
-        }
+
+        return String(subject)
+
+//       switch subject {
+//        case .Math:
+//            return "Math"
+//        case .English:
+//            return "English"
+//        case .French:
+//            return "French"
+//        case .History:
+//            return "History"
+//        }
     }
 
 
@@ -71,6 +75,41 @@ class Student: Person, Classify {
     func isStudent() -> Bool
     {
         return true
+    }
+
+}
+
+class School {
+    var name: String
+    var list_persons:[Person]
+
+    init(name: String) {
+        self.name = name
+        self.list_persons = [ ]
+    }
+
+    func addStudent(p: Person) -> Bool
+    {
+        if p is Student {
+            list_persons.append(p)
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+    func addMentor(p: Person) -> Bool
+    {
+
+        if p is Mentor {
+            list_persons.append(p)
+            return true
+        }
+        else {
+            return false
+        }
+
     }
 
 }

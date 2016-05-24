@@ -18,13 +18,23 @@ class Person{
 
 }
 
+enum Subject {
+    case Math
+    case English
+    case French
+    case History
+}
+
 protocol Classify {
     func isStudent() -> Bool
 }
 
 class Mentor: Person, Classify {
 
-    init(first_name: String, last_name: String, age: Int) {
+    var subject: Subject
+
+    init(first_name: String, last_name: String, age: Int, subject: Subject) {
+        self.subject = subject
         super.init(first_name, last_name, age)
     }
 
@@ -33,8 +43,24 @@ class Mentor: Person, Classify {
         return false
     }
 
-}
+    func stringSubject() -> String
+    {
+        var theSubject:Subject
+        theSubject = .French
+        switch theSubject {
+        case .Math:
+            return ("Math")
+        case .English:
+            return ("English")
+        case .French:
+            return ("French")
+        case .History:
+            return ("History")
+        }
+    }
 
+
+}
 
 class Student: Person, Classify {
 
@@ -46,6 +72,5 @@ class Student: Person, Classify {
     {
         return true
     }
-
 
 }

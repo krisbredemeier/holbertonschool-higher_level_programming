@@ -132,15 +132,17 @@ class School {
         return list.sort({$0.age > $1.age})
     }
 
-    func listMentorsBySubject() -> [Person]
+    func listMentorsBySubject(subject:Subject) -> [Person]
     {
         var list: [Person] = []
-        for index in list_persons {
-            if let mentor = Person as? Mentor {
+        for person in list_persons {
+            if let mentor = person as? Mentor {
                 if subject == mentor.subject {
-                list.append(Person)
+                list.append(person)
             }
         }
     }
         return list
+}
+
 }

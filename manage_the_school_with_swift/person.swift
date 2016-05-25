@@ -1,6 +1,3 @@
-//: Playground - noun: a place where people can play
-
-
 var str = "Hello, playground"
 
 class Person{
@@ -112,4 +109,38 @@ class School {
 
     }
 
+    func listStudents() -> [Person]
+    {
+        var list: [Person] = []
+        for index in list_persons {
+            if index is Student {
+                list.append(index)
+            }
+        }
+        return list.sort({$0.age > $1.age})
+
+    }
+
+    func listMentors() -> [Person]
+    {
+        var list: [Person] = []
+        for index in list_persons {
+            if index is Mentor {
+                list.append(index)
+            }
+        }
+        return list.sort({$0.age > $1.age})
+    }
+
+    func listMentorsBySubject() -> [Person]
+    {
+        var list: [Person] = []
+        for index in list_persons {
+            if let mentor = Person as? Mentor {
+                if subject == mentor.subject {
+                list.append(Person)
+            }
+        }
+    }
+        return list
 }

@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZW-3H-7wz">
-                                <rect key="frame" x="151" y="27" width="298" height="268"/>
+                                <rect key="frame" x="151" y="30" width="298" height="268"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="298" id="VS4-Te-Cfa"/>
                                     <constraint firstAttribute="height" constant="268" id="dyX-7Z-oSn"/>
@@ -81,7 +81,7 @@
                             <constraint firstItem="R0g-P8-1hT" firstAttribute="top" secondItem="H4r-Nx-2LC" secondAttribute="bottom" constant="30" id="Qhu-vg-m6D"/>
                             <constraint firstItem="KZW-3H-7wz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UEm-pF-Pow"/>
                             <constraint firstItem="R0g-P8-1hT" firstAttribute="top" secondItem="H4r-Nx-2LC" secondAttribute="bottom" constant="30" id="UQn-Vy-JcB"/>
-                            <constraint firstItem="KZW-3H-7wz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="iEH-OT-etT"/>
+                            <constraint firstItem="KZW-3H-7wz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="iEH-OT-etT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="R0g-P8-1hT" secondAttribute="bottom" constant="63" id="nOg-pv-LO0"/>
                             <constraint firstItem="WMt-bU-6eA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q1K-Wf-ZzM"/>
                             <constraint firstItem="PW5-tH-G61" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t85-1H-zOl"/>

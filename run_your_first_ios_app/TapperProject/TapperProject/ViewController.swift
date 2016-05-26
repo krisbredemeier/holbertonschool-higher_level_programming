@@ -21,6 +21,10 @@ class ViewController: UIViewController {
 
 
     @IBAction func clickCoin(sender: AnyObject) {
+
+       _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(resetGame), userInfo: nil, repeats: false)
+
+
         self.tapsDone += 1
         if self.tapsDone == self.tapsRequested {
             self.tfTaps.text = " Congrats "
@@ -74,7 +78,7 @@ class ViewController: UIViewController {
     }
 
     func updateTapsLabel() {
-        self.lblTaps.text = String(tapsDone) + "Taps !"
+        self.lblTaps.text = String(tapsDone) + " Taps !"
     }
     
     

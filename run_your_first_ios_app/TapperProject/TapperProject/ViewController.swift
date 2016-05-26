@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     var tapsRequested: Int? = 0
     var tapsDone: Int = 0
+    var timer: NSTimer = NSTimer()
 
     @IBOutlet weak var imgTapper: UIImageView!
     @IBOutlet weak var tfTaps: UITextField!
@@ -22,7 +23,10 @@ class ViewController: UIViewController {
 
     @IBAction func clickCoin(sender: AnyObject) {
 
-       _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(resetGame), userInfo: nil, repeats: false)
+        if timer.valid {
+            timer.invalidate()
+        }
+       timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(resetGame), userInfo: nil, repeats: false)
 
 
         self.tapsDone += 1

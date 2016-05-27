@@ -10,7 +10,7 @@ import UIKit
 
 class CompaniesListViewController: UITableViewController {
 
-    var companiesList = TechCompaniesHelper.getTechCompanies()
+    var companies = TechCompaniesHelper.getTechCompanies()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,24 +31,27 @@ class CompaniesListViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(tableView: UITableView,  cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.companies.count
+    }
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("CompanyCell", forIndexPath: indexPath)
-        cell.textLabel?.text = companiesList[indexPath.row]
-        if companiesList[indexPath.row] == "Holberton" {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CompanyCell", forIndexPath: indexPath)
+        if (companies[indexPath.row] == "Holberton")
+        {
             cell.detailTextLabel?.text = "I love studying"
         }
-        else {
+        else
+        {
             cell.detailTextLabel?.text = "I love working"
         }
+        cell.textLabel?.text = companies[indexPath.row]
 
         return cell
-
     }
-
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

@@ -17,8 +17,8 @@ class TechCompaniesHelper {
     }
 
 
-    static func getTechCompanies() -> String {
-        return self.companies
+    static func getTechCompanies() -> [String] {
+        return companies
     }
 
 }

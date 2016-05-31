@@ -1,11 +1,12 @@
 import Tkinter as tk
 
 class TaskView(tk.Toplevel):
-    def __init__(self, master):
-        tk.Toplevel.__init__(self, master)
-        self.protocol('WM_DELETE_WINDOW', self.master.destroy)
+    def __init__(self, master=None):
         if not isinstance(master, tk.Tk):
             raise Exception("master is not a tk.Tk()")
+        self.master = master
+
+        tk.Frame.__init__(self, master)
 
         self.__title_var = tk.StringVar()
         self.__title_label = tk.Label(master, textvariable=self.__title_var)

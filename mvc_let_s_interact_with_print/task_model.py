@@ -14,9 +14,8 @@ class TaskModel():
         return self.__title
 
     def set_callback_title(self, callback_title):
-        self.__callback_title = title
+        self.__callback_title = callback_title
 
     def toggle(self):
         self.__title = self.__title[::-1]
-        if self.__callback_title():
-            self.__callback_title(self.__title)
+        self.__callback_title():

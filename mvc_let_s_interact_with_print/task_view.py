@@ -14,8 +14,18 @@ class TaskView(tk.Frame):
         self.toggle_button = tk.Button(self, text="Reverse")
         self.toggle_button.pack(side = 'left')
 
+        self.pack()
+
     def update_title(self, title):
         if not title or not isinstance(title, str):
             raise Exception("title is not a string")
         self.__title_var.set(title)
         self.__title_label.pack(side = 'right')
+
+
+if __name__ == "__main__":
+	root = tk.Tk()
+	# root.withdraw()
+	tv = TaskView(root)
+	tv.update_title("Finish this funny project")
+	root.mainloop()

@@ -2,7 +2,7 @@ import Tkinter as tk
 
 class TaskModel():
     def __init__(self, title):
-        if title is None or title is not str:
+        if not title or type(title) is not str:
             raise Exception("title is not a string")
         self.__title = title
         self.__callback_title = None
@@ -18,4 +18,4 @@ class TaskModel():
 
     def toggle(self):
         self.__title = self.__title[::-1]
-        self.__callback_title():
+        self.__callback_title()

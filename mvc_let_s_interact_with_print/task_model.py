@@ -18,4 +18,5 @@ class TaskModel():
 
     def toggle(self):
         self.__title = self.__title[::-1]
-        self.__callback_title()
+        if self.__callback_title:
+            self.__callback_title(self.__title)

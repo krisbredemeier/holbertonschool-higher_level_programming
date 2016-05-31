@@ -1,6 +1,6 @@
 import Tkinter as tk
 
-class TaskView(tk.Toplevel):
+class TaskView(tk.Frame):
     def __init__(self, master=None):
         if not isinstance(master, tk.Tk):
             raise Exception("master is not a tk.Tk()")

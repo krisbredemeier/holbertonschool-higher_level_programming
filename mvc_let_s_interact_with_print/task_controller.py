@@ -13,10 +13,6 @@ class TaskController():
 
         self.__model = model
         self.__view = TaskView(master)
-
-        self.__model.set_callback_title(self.title_callback_title)
+        self.__model.set_callback_title(self.__view.update_title)
         self.__view.update_title(self.__model.get_title())
         self.__view.toggle_button.config(command=self.__model.toggle)
-
-    def title_callback(self):
-        self.__view.update_title(self.__model.get_title())

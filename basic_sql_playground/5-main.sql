@@ -1,7 +1,7 @@
 select distinct last_name
 from person
 join (select tvshow_id, person_id as id from tvshowperson) using (id)
-where tvshow_id = 3;
+where tvshow_id = (select id from tvshow where name="Game of Thrones");
 
 select count(*) From Person where age > 30;
 

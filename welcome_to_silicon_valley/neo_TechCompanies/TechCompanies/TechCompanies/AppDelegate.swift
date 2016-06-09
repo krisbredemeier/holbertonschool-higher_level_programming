@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TechCompanies
 //
-//  Created by Kristine Bredemeier on 5/27/16.
+//  Created by Kristine Bredemeier on 6/8/16.
 //  Copyright © 2016 Kristine Bredemeier. All rights reserved.
 //
 

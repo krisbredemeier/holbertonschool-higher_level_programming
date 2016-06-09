@@ -6,7 +6,9 @@
 //  Copyright © 2016 Kristine Bredemeier. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
+enum EntityType:String
 
 class Entity: UITableViewController {
 

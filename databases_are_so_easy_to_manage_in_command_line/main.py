@@ -20,6 +20,11 @@ def main():
         "age_average",
         "change_batch",
         "print_all",
+        "note_average_by_student",
+        "note_average_by_batch",
+        "note_average_by_school",
+        "top_batch",
+        "top_school"
     )
 
 def create_it():
@@ -180,6 +185,33 @@ def change_batch():
         x.batch = sys.argv[3]
         x.save()
 
+def note_average_by_student():
+    try:
+        Student.get(Student.id == sys.argv[2])
+        score = Exercise.select().join(Student).where(Student.id == sys.argv[2])
+        for i in score:
+            print "%s: %s" %(i.subject, i.note)
+    except:
+        print "Student not found"
+
+
+def note_average_by_batch():
+    try:
+        Batch.get(Batch.id == sys.argv[2])
+    except Batch.DoesNotExist:
+        print "Batch not found"
+
+def note_average_by_school():
+    try:
+        School.get(School.id == sys.argv[2])
+    except School.DoesNotExist:
+        print "School not found"
+
+
+# def top_batch():
+#
+# def top_school():
+
 if len(sys.argv) < 2:
     print "please enter an action"
 else:
@@ -205,5 +237,15 @@ else:
         print_student_by_school()
     elif sys.argv[1] == "change_batch":
         change_batch()
+    elif sys.argv[1] == "note_average_by_student":
+        note_average_by_student()
+    elif sys.argv[1] == "note_average_by_batch":
+        note_average_by_batch()
+    elif sys.argv[1] == "note_average_by_school":
+        note_average_by_school()
+    elif sys.argv[1] == "top_batch":
+        top_batch()
+    elif sys.argv[1] == "top_school":
+        top_school()
     else:
         print "Undefined action", str(sys.argv[1])

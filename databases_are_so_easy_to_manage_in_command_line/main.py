@@ -32,13 +32,12 @@ def print_it():
             for school in School.select():
                 print school
         elif sys.argv[2] == "batch":
-            print "hello"
-            for bath in Batch.select():
+            for batch in Batch.select():
                 print batch
         elif sys.argv[2] == "user":
             for users in Users.select():
                 print "User: %s %s (%d)" %(users.first_name, users.last_name, users.id)
-        elif sys.arg[2] == "student":
+        elif sys.argv[2] == "student":
             for student in Student.select():
                 print student,
                 print Batch.get(school_id = 1)

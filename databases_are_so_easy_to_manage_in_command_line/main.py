@@ -40,6 +40,7 @@ def print_it():
         elif sys.argv[2] == "student":
             for student in Student.select():
                 print student,
+                print ("\n")
                 # print Batch.get(school_id = 1)
         else:
             print "Undefined action", str(sys.argv[2])

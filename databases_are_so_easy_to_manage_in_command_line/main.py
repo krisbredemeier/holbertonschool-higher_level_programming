@@ -47,7 +47,7 @@ def print_it():
         elif sys.argv[2] == "student":
             for student in Student.select():
                 print student,
-                print ("\n")
+                # print ("\n")
                 # print Batch.get(school_id = 1)
         else:
             print "Undefined action", str(sys.argv[2])
@@ -59,24 +59,20 @@ def insert_it():
     else:
         if sys.argv[2] == "school":
             School.create(name = sys.argv[3])
-            print "New School: "
-            print School.get(name = sys.argv[3])
+            print "New School:", School.get(name = sys.argv[3])
         elif sys.argv[2] == "batch":
             Batch.create(school_id = sys.argv[3], name = sys.argv[4])
-            print "New Batch: ",
-            print Batch.get(school_id = sys.argv[3])
+            print "New Batch:", Batch.get(school_id = sys.argv[3])
         elif sys.argv[2] == "user":
             User.create(first_name = sys.argv[3], last_name = sys.argv[4], age = sys.argv[5])
             print "New User: User: %s %s (%d)" %(sys.argv[3], sys.argv[4], sys.argv[5])
         elif sys.argv[2] == "student":
             if len(sys.argv) <=6:
                 Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5])
-                print ("New Student:"),
-                print Student.get(last_name = sys.argv[5])
+                print "New Student:", Student.get(last_name = sys.argv[5])
             else:
                 Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5], first_name = sys.argv[6])
-                print ("New Student:"),
-                print Student.get(first_name = sys.argv[6])
+                print "New Student:", Student.get(first_name = sys.argv[6])
         else:
             print "Undefined action", str(sys.argv[2])
 
@@ -87,16 +83,22 @@ def delete_it():
         pass
     else:
         if sys.argv[2] == "school":
-            School.delete(id = sys.argv[3])
+            school = School.get(id = sys.argv[3])
+            print "deleting", school
+            school.delete_instance()
         elif sys.argv[2] == "batch":
-            Batch.delete(id = sys.argv[3])
+            batch = Batch.get(id = sys.argv[3])
+            print "deleting", batch
+            batch.delete_instance()
         elif sys.argv[2] == "user":
             ''' user '''
         elif sys.argv[2] == "student":
-            student = Student.get(Student.id == sys.argv[3])
-            print"Delete:",
-            print student
-            student.delete_instance()
+            try:
+                student = Student.get(Student.id == sys.argv[3])
+                print "Delete:", student
+                student.delete_instance()
+            except:
+                print "Nothing to delete"
         else:
             print "Undefined action", str(sys.argve[2])
 
@@ -110,7 +112,7 @@ def print_student_by_school():
     try:
         Batch.get(school_id = sys.argv[2])
         for student in Student.select().join(Batch).where(Batch.school_id == sys.argv[2]):
-            print student, Batch.get(id = sys.argv[2])
+            print student
     except:
         print "School not found"
 
@@ -142,20 +144,20 @@ def age_average():
 
 def change_batch():
     try:
-        a = Student.get(Student.id == sys.argv[2])
-        b = Batch.get(Batch.id == sys.argv[3])
+        x = Student.get(Student.id == sys.argv[2])
+        y = Batch.get(Batch.id == sys.argv[3])
     except Student.DoesNotExist:
         print "Studnt not found"
     except Batch.DoesNotExist:
         print "Batch not found"
 
     if Student.select().where(Student.id == sys.argv[2], Student.batch == sys.argv[3]).exists():
-        print "%s already in %s" % (a,b)
+        print "%s already in %s" % (x, y)
 
-    print "%s has been moved to %s" % (a,b)
-    print a
-    a.batch = sys.argv[3]
-    a.save()
+    print "%s has been moved to %s" % (x, y)
+    print x
+    # a.batch = sys.argv[3]
+    # a.save()
 
 if len(sys.argv) < 2:
     print "please enter an action"

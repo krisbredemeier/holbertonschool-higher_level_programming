@@ -140,7 +140,16 @@ def age_average():
         i += 1
     print age_avg/i
 
-# def print_all():
+def print_all():
+    for school in School.select():
+        print school
+        for batch in Batch.select():
+            if batch.school.id == school.id:
+                print "\t" + str(batch)
+                for student in Student.select():
+                    if student.batch.id == batch.id:
+                        print "\t\t" + str(student)
+
 
 def change_batch():
     try:
@@ -153,11 +162,11 @@ def change_batch():
 
     if Student.select().where(Student.id == sys.argv[2], Student.batch == sys.argv[3]).exists():
         print "%s already in %s" % (x, y)
-
-    print "%s has been moved to %s" % (x, y)
-    print x
-    # a.batch = sys.argv[3]
-    # a.save()
+    else:
+        print "%s has been moved to %s" % (x, y)
+        # print x
+        x.batch = sys.argv[3]
+        x.save()
 
 if len(sys.argv) < 2:
     print "please enter an action"

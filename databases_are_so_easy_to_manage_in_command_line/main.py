@@ -14,6 +14,13 @@ def main():
         "print",
         "insert",
         "delete"
+        "print_batch_by_school"
+        "print_student_by_batch",
+        "print_student_by_school",
+        "print_family",
+        "age_average",
+        "change_batch",
+        "print_all",
     )
 
 def create_it():
@@ -93,6 +100,38 @@ def delete_it():
         else:
             print "Undefined action", str(sys.argve[2])
 
+def print_batch_by_school():
+    try:
+        print Batch.get(id = sys.argv[2])
+    except:
+        print "School not found"
+
+def print_student_by_school():
+    try:
+        Student.get(batch_id = sys.argv[2])
+        for student in Student.select().where(Student.batch_id == sys.argv[2]):
+            print student
+    except:
+        print "Batch not found"
+
+def print_family():
+    try:
+        for student in Student:
+            if (student.last_name == sys.argv[2]):
+                print student
+    except:
+        print "Last name not found"
+
+def age_average():
+    age_avg = 0
+    i = 0
+    for student in Student:
+        age_avg = age_avg + student.age_avg
+        i += 1
+    print age_avg/i
+
+# def print_all():
+
 if len(sys.argv) < 2:
     print "please enter an action"
 else:
@@ -104,5 +143,17 @@ else:
         insert_it()
     elif sys.argv[1] == "delete":
         delete_it()
+    elif sys.argv [1] == "print_batch_by_school":
+        print_batch_by_school()
+    elif sys.argv[1] == "print_student_by_batch":
+        print_student_by_batch()
+    elif sys.argv[1] == "print_family":
+        print_family()
+    elif sys.argv[1] == "age_average":
+        age_average()
+    elif sys.argv[1] == "print_all":
+        print_all()
+    elif sys.argv[1] == "print_student_by_school":
+        print_student_by_school()
     else:
         print "Undefined action", str(sys.argv[1])

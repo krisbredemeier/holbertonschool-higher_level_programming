@@ -2,7 +2,6 @@ import peewee
 import sys
 from models import *
 
-
 ''' create_it function '''
 def main():
     my_models_db.connect()
@@ -25,7 +24,7 @@ def main():
 
 def create_it():
     try:
-        my_models_db.create_tables([School, Batch, User, Student], safe=True)
+        my_models_db.create_tables([School, Batch, User, Student, Exercise], safe=True)
     except peewee.OperationalError:
         pass
 
@@ -49,6 +48,9 @@ def print_it():
                 print student,
                 # print ("\n")
                 # print Batch.get(school_id = 1)
+        elif sys.argv[2] == "exercise":
+            for exercise in Exercise.select():
+                print exercise
         else:
             print "Undefined action", str(sys.argv[2])
 
@@ -73,6 +75,9 @@ def insert_it():
             else:
                 Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5], first_name = sys.argv[6])
                 print "New Student:", Student.get(first_name = sys.argv[6])
+        elif sys.argv[2] == "exercise":
+            Exercise.create(student = sys.argv[3], subject = sys.argv[4], note = sys.argv[5])
+            print "New Exercise:", Exercise.get(subject = sys.argv[4])
         else:
             print "Undefined action", str(sys.argv[2])
 
@@ -99,6 +104,10 @@ def delete_it():
                 student.delete_instance()
             except:
                 print "Nothing to delete"
+        elif sys.argv[2] == "exercise":
+            exercise = Exercise.get(id = sys.argv[3])
+            print "delting", exercise
+            exercise.delete_instance()
         else:
             print "Undefined action", str(sys.argve[2])
 
@@ -149,6 +158,9 @@ def print_all():
                 for student in Student.select():
                     if student.batch.id == batch.id:
                         print "\t\t" + str(student)
+                        for exersise in Exercise.select():
+                            if exersise.student.id == student.id:
+                                print "\t\t\t" + str(exersise)
 
 
 def change_batch():

@@ -28,3 +28,17 @@ class Student (User):
     batch = peewee.ForeignKeyField(Batch, related_name = "students", on_delete = "CASCADE")
     def __str__ (self):
         return "Student: %s %s (%d) part of batch: %s " %(self.first_name, self.last_name, self.id, self.batch)
+
+class Exercise(BaseModel):
+    SUBJECTS = [
+    ('math', "Math"),
+    ('english', "English"),
+    ('history', "History"),
+    ('c_prog', "C prog"),
+    ('swift_prog', "Swift prog")
+    ]
+    student = peewee.ForeignKeyField(Student, related_name = "exercises", on_delete = "CASCADE")
+    subject = peewee.CharField(128, choices = SUBJECTS)
+    note = peewee.IntegerField(default = 0)
+    def __str__(self):
+        return "Exercise: %s has %s in %s (%s)" %(self.student, self.note, self.subject, self.id)

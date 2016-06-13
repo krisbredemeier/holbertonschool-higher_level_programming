@@ -40,7 +40,7 @@ def print_it():
         elif sys.argv[2] == "student":
             for student in Student.select():
                 print student,
-                print Batch.get(school_id = 1)
+                # print Batch.get(school_id = 1)
         else:
             print "Undefined action", str(sys.argv[2])
 
@@ -61,10 +61,14 @@ def insert_it():
             User.create(first_name = sys.argv[3], last_name = sys.argv[4], age = sys.argv[5])
             print "New User: User: %s %s (%d)" %(sys.argv[3], sys.argv[4], sys.argv[5])
         elif sys.argv[2] == "student":
-            Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5], first_name = sys.argv[6])
-            print ("New Student:"),
-            print Student.get(first_name = sys.argv[6])
-            print Batch.get(school_id = sys.argv[3])
+            if len(sys.argv) <=6:
+                Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5])
+                print ("New Student:"),
+                print Student.get(last_name = sys.argv[5])
+            else:
+                Student.create(batch_id = sys.argv[3], age = sys.argv[4], last_name = sys.argv[5], first_name = sys.argv[6])
+                print ("New Student:"),
+                print Student.get(first_name = sys.argv[6])
         else:
             print "Undefined action", str(sys.argv[2])
 

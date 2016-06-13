@@ -108,6 +108,14 @@ def print_batch_by_school():
 
 def print_student_by_school():
     try:
+        Batch.get(school_id = sys.argv[2])
+        for student in Student.select().join(Batch).where(Batch.school_id == sys.argv[2]):
+            print student, Batch.get(id = sys.argv[2])
+    except:
+        print "School not found"
+
+def print_student_by_batch():
+    try:
         Student.get(batch_id = sys.argv[2])
         for student in Student.select().where(Student.batch_id == sys.argv[2]):
             print student
@@ -126,11 +134,28 @@ def age_average():
     age_avg = 0
     i = 0
     for student in Student:
-        age_avg = age_avg + student.age_avg
+        age_avg = age_avg + student.age
         i += 1
     print age_avg/i
 
 # def print_all():
+
+def change_batch():
+    try:
+        a = Student.get(Student.id == sys.argv[2])
+        b = Batch.get(Batch.id == sys.argv[3])
+    except Student.DoesNotExist:
+        print "Studnt not found"
+    except Batch.DoesNotExist:
+        print "Batch not found"
+
+    if Student.select().where(Student.id == sys.argv[2], Student.batch == sys.argv[3]).exists():
+        print "%s already in %s" % (a,b)
+
+    print "%s has been moved to %s" % (a,b)
+    print a
+    a.batch = sys.argv[3]
+    a.save()
 
 if len(sys.argv) < 2:
     print "please enter an action"
@@ -155,5 +180,7 @@ else:
         print_all()
     elif sys.argv[1] == "print_student_by_school":
         print_student_by_school()
+    elif sys.argv[1] == "change_batch":
+        change_batch()
     else:
         print "Undefined action", str(sys.argv[1])

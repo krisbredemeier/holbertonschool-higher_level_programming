@@ -4,7 +4,7 @@ from models import *
 
 
 ''' create_it function '''
-def create_it():
+def main():
     my_models_db.connect()
     if len (sys.argv) < 2:
         print "Please enter an action"
@@ -15,6 +15,12 @@ def create_it():
         "insert",
         "delete"
     )
+
+def create_it():
+    try:
+        my_models_db.create_tables([School, Batch, User, Student], safe=True)
+    except peewee.OperationalError:
+        pass
 
 ''' print_it function '''
 def print_it():

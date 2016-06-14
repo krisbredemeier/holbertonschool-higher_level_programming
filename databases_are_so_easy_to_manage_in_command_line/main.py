@@ -1,6 +1,8 @@
 import peewee
 import sys
 from models import *
+from decimal import *
+# getcontext().prec = 2
 
 ''' create_it function '''
 def main():
@@ -191,19 +193,101 @@ def note_average_by_student():
         score = Exercise.select().join(Student).where(Student.id == sys.argv[2])
         for i in score:
             print "%s: %s" %(i.subject, i.note)
-    except:
+    except Student.DoesNotExist:
         print "Student not found"
-
 
 def note_average_by_batch():
     try:
-        Batch.get(Batch.id == sys.argv[2])
+        Student.get(Student.batch == sys.argv[2])
+        english = 0.0
+        math = 0.0
+        history = 0.0
+        c_prog = 0.0
+        swift_prog = 0.0
+        e = 0
+        m = 0
+        h = 0
+        c = 0
+        s = 0
+        score = (Exercise.select()
+            .join(Student)
+            .where(Student.batch == sys.argv[2]))
+        for i in score:
+            if i.subject == "English":
+                english += i.note
+                e += 1
+            elif i.subject == "Math":
+                math += i.note
+                m += 1
+            elif i.subject == "History":
+                history += i.note
+                h += 1
+            elif i.subject == "c_prog":
+                c_prog += i.note
+                c += 1
+            elif i.subject == "swift_prog":
+                swift_prog += i.note
+                s += 1
+        if e != 0:
+            print "English", Decimal(math/e)
+        if m != 0:
+            print "Math", Decimal(math/m)
+        if h != 0:
+            print "History", Decimal(math/h)
+        if c != 0:
+            print "C_prog", Decimal(math/c)
+        if s != 0:
+            print "Swift_prog", Decimal(math/s)
+
     except Batch.DoesNotExist:
         print "Batch not found"
 
 def note_average_by_school():
     try:
         School.get(School.id == sys.argv[2])
+        english = 0.0
+        math = 0.0
+        history = 0.0
+        c_prog = 0.0
+        swift_prog = 0.0
+        e = 0
+        m = 0
+        h = 0
+        c = 0
+        s = 0
+        score = (Exercise
+            .select(Exercise.subject)
+            .join(Student )
+            .join(Batch )
+            .where(Batch.school_id == sys.argv[2])
+            .group_by(Exercise.subject))
+        for i in score:
+            if i.subject == "English":
+                english += i.note
+                e += 1
+            elif i.subject == "Math":
+                math += i.note
+                m += 1
+            elif i.subject == "History":
+                history += i.note
+                h += 1
+            elif i.subject == "c_prog":
+                c_prog += i.note
+                c += 1
+            elif i.subject == "swift_prog":
+                swift_prog += i.note
+                s += 1
+        if e != 0:
+            print "English", Decimal(english/e)
+        if m != 0:
+            print "Math", Decimal(math/m)
+        if h != 0:
+            print "History", Decimal(history/h)
+        if c != 0:
+            print "C_prog", Decimal(c_prog/c)
+        if s != 0:
+            print "Swift_prog", Decimal(swift_prog/s)
+
     except School.DoesNotExist:
         print "School not found"
 

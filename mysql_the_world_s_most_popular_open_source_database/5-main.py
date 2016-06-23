@@ -1,3 +1,4 @@
+''' task five '''
 #!/usr/bin/python
 import MySQLdb
 
@@ -10,7 +11,7 @@ connect = MySQLdb.connect(host="173.246.108.142",
 
 curse = connect.cursor()
 
-get_shows_query = ''' select TVShow.name, TVShow.id from TVShow order by TVShow.name'''
+# get_shows_query = ''' select TVShow.name, TVShow.id from TVShow order by TVShow.name'''
 
 get_seasons_query = "SELECT Season.id, Season.number from Season Where Season.tvshow_id ="
 

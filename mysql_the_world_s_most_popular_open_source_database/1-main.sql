@@ -1,3 +1,4 @@
+''' task two '''
 \! echo "\nNumber of seasons by tvshow_id?"
 select TVShow.id, count(Season.tvshow_id) from TVShow
   left join Season on (TVShow.id = Season.tvshow_id)

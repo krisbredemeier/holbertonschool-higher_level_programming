@@ -1,3 +1,4 @@
+''' task four '''
 \! echo "\nList of all TVShows by all Genres ordered by genre name (A-Z)? (if a genre has 0 TVShow, please display NULL)"
 select Genre.name, TVShow.name from TVShow
   right join TVShowGenre on (TVShow.id = TVShowGenre.tvshow_id)

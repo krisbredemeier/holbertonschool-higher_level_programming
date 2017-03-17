@@ -8,20 +8,22 @@ class Rectangle():
 
     @width.setter
     def width(self, value):
-        if isinstance(value, int)
-            width < 0
-            ValueError (width must be >= 0)
-        TypeError(width must be an integer)
+        if isinstance(value, int):
+            if width < 0:
+                raise ValueError (width must be >= 0)
+            else
+                raise TypeError(width must be an integer)
     @property
     def height(self):
         return self.__height
 
     @height.setter
     def height(self, value):
-        if isinstance(value, int)
-            heigth < 0
-            ValueError(height must be >= 0)
-        TypeError(height must be an integer)
+        if isinstance(value, int):
+            if heigth < 0:
+                raise ValueError(height must be >= 0)
+            else
+                raise TypeError(height must be an integer)
 
 def __init__(self, width=0, height=0):
     self.width = width

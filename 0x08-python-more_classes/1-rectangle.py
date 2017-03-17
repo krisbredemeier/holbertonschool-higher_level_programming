@@ -10,3 +10,5 @@ class Rectangle():
     def height(self):
 
     def height(self, value):
+
+def __init__(self, width=0, height=0):

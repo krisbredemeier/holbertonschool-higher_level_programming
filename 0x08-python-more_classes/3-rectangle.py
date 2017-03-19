@@ -35,12 +35,14 @@ def area(self):
     return (self.__width * self.__height)
 
 def perimeter(self):
-    if self.__width = 0 or self.__height = 0:
+    if self.__width == 0 or self.__height == 0:
         return 0
     return (self.__width * 2) + (self.height * 2)
 
 
 def __str__(self):
-    if self.__width = 0 or self.__height
+    if self.__width == 0 or self.__height == 0:
         raise ValueError ("width and height cannot equal 0")
         return ''
+    rectangle_representation = ('#' * self.__width + '\n') * self.__height
+    return (rectangle_representation.strip('\n'))

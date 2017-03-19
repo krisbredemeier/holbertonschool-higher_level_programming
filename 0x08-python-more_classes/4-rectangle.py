@@ -31,30 +31,30 @@ class Rectangle():
         else:
             raise TypeError ("height must be an integer")
 
-def __init__(self, width=0, height=0):
-    '''Instantiation'''
-    self.width = width
-    self.height = height
+    def __init__(self, width=0, height=0):
+        '''Instantiation'''
+        self.width = width
+        self.height = height
 
-def area(self):
-    ''''returns the rectangle area'''
-    return (self.__width * self.__height)
+    def area(self):
+        ''''returns the rectangle area'''
+        return (self.__width * self.__height)
 
-def perimeter(self):
-    '''returns the rectangle perimeter'''
-    if self.__width == 0 or self.__height == 0:
-        return 0
-    return (self.__width * 2) + (self.height * 2)
+    def perimeter(self):
+        '''returns the rectangle perimeter'''
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return (self.__width * 2) + (self.height * 2)
 
 
-def __str__(self):
-    '''print() and str() should print the rectangle with the character #'''
-    if self.__width == 0 or self.__height == 0:
-        raise ValueError ("width and height cannot equal 0")
-        return ''
-    rectangle_representation = ('#' * self.__width + '\n') * self.__height
-    return (rectangle_representation)
+    def __str__(self):
+        '''print() and str() should print the rectangle with the character #'''
+        if self.__width == 0 or self.__height == 0:
+            raise ValueError ("width and height cannot equal 0")
+            return ''
+        rectangle_representation = ('#' * self.__width + '\n') * self.__height
+        return (rectangle_representation)
 
-def __repr__(self):
-    '''return a string representation of the rectangle to be able to recreate a new instance by using eval()'''
-    return("Rectangle(%d, %d)" % (self.__width, self.__height))
+    def __repr__(self):
+        '''return a string representation of the rectangle to be able to recreate a new instance by using eval()'''
+        return("Rectangle(%d, %d)" % (self.__width, self.__height))

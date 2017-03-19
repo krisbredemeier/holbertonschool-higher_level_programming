@@ -31,7 +31,7 @@ class Rectangle():
         else:
             raise TypeError ("height must be an integer")
 
-def __init__(self, width=0, height=0):
-    '''Instantiation'''
-    self.width = width
-    self.height = height
+    def __init__(self, width=0, height=0):
+        '''Instantiation'''
+        self.width = width
+        self.height = height

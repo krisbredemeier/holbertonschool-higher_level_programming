@@ -2,6 +2,7 @@
 ''' Write a class Rectangle that defines a rectangle '''
 
 class Rectangle():
+    
     number_of_instances = 0
 
     @property
@@ -33,11 +34,6 @@ class Rectangle():
         else:
             raise TypeError ("height must be an integer")
 
-    def __init__(self, width=0, height=0):
-        '''Instantiation'''
-        self.width = width
-        self.height = height
-
     def area(self):
         ''''returns the rectangle area'''
         return (self.__width * self.__height)
@@ -47,6 +43,12 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width * 2) + (self.height * 2)
+
+    def __init__(self, width=0, height=0):
+        '''Instantiation'''
+        self.width = width
+        self.height = height
+        type(self).number_of_instances += 1
 
     def __str__(self):
         '''print() and str() should print the rectangle with the character #'''
@@ -63,3 +65,4 @@ class Rectangle():
     def __del__(self):
         '''instance of Rectangle is deleted'''
         return ("Bye rectangle...")
+        type(self).number_of_instances -= 1

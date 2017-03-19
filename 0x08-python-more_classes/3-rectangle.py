@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Write a class Rectangle that defines a rectangle by: (based on 1-rectangle.py) '''
+''' Write a class Rectangle that defines a rectangle '''
 
 class Rectangle():
     @property
@@ -41,6 +41,7 @@ def perimeter(self):
 
 
 def __str__(self):
+    '''print() and str() should print the rectangle with the character #'''
     if self.__width == 0 or self.__height == 0:
         raise ValueError ("width and height cannot equal 0")
         return ''

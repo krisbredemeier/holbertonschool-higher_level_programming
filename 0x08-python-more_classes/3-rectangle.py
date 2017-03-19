@@ -39,5 +39,8 @@ def perimeter(self):
         return 0
     return (self.__width * 2) + (self.height * 2)
 
-print(Rectangle(#))
-str()
+
+def __str__(self):
+    if self.__width = 0 or self.__height
+        raise ValueError ("width and height cannot equal 0")
+        return ''

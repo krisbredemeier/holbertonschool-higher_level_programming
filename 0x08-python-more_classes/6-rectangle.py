@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 ''' Write a class Rectangle that defines a rectangle '''
 
+
 class Rectangle():
-    
+
     number_of_instances = 0
 
     @property

@@ -1,9 +1,8 @@
 #!/usr/bin/python3
+''' Write a class Rectangle that defines a rectangle '''
 
-''' Write a class Rectangle that defines a rectangle'''
 
-
-class Rectangle
+class Rectangle():
     @property
     def width(self):
         '''retrieve'''

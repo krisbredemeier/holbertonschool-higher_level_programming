@@ -58,8 +58,8 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             raise ValueError("width and height cannot equal 0")
             return ''
-        rectangle_representation = (str(self.print_symbol) * self.__width + '\n') * self.__height
-        return (rectangle_representation.strip('\n'))
+        rec = (str(self.print_symbol) * self.__width + '\n') * self.__height
+        return (rec.strip('\n'))
 
     def __repr__(self):
         '''return a string representation of the rectangle to

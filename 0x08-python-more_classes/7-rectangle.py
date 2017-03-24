@@ -51,7 +51,7 @@ class Rectangle():
         '''Instantiation'''
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
+        self.number_of_instances += 1
 
     def __str__(self):
         '''print() and str() should print the rectangle with the character #'''
@@ -68,5 +68,5 @@ class Rectangle():
 
     def __del__(self):
         '''instance of Rectangle is deleted'''
-        type(self).number_of_instances -= 1
+        self.number_of_instances -= 1
         return ("Bye rectangle...")

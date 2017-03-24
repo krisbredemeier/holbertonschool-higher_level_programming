@@ -12,7 +12,7 @@ class Rectangle():
     def width(self, value):
         '''set'''
         if isinstance(value, int):
-            if width < 0:
+            if value < 0:
                 raise ValueError("width must be >= 0")
             self.__width = value
         else:
@@ -27,7 +27,7 @@ class Rectangle():
     def height(self, value):
         '''set'''
         if isinstance(value, int):
-            if heigth < 0:
+            if value < 0:
                 raise ValueError("height must be >= 0")
             self.__height = value
         else:
@@ -39,7 +39,7 @@ class Rectangle():
         self.height = height
 
     def area(self):
-        ''''returns the rectangle area'''
+        '''returns the rectangle area'''
         return (self.__width * self.__height)
 
     def perimeter(self):
@@ -54,7 +54,7 @@ class Rectangle():
             raise ValueError("width and height cannot equal 0")
             return ''
         rectangle_representation = ('#' * self.__width + '\n') * self.__height
-        return (rectangle_representation)
+        return (rectangle_representation.strip('\n'))
 
     def __repr__(self):
         '''return a string representation of the rectangle

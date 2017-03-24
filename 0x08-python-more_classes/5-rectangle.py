@@ -3,6 +3,9 @@
 
 
 class Rectangle():
+
+    number_of_instances = 0
+
     @property
     def width(self):
         '''retrieve'''
@@ -37,6 +40,7 @@ class Rectangle():
         '''Instantiation'''
         self.width = width
         self.height = height
+        self.number_of_instances += 1
 
     def area(self):
         '''returns the rectangle area'''
@@ -63,4 +67,5 @@ class Rectangle():
 
     def __del__(self):
         '''instance of Rectangle is deleted'''
-        return ("Bye rectangle...")
+        self.number_of_instances -= 1
+        print ("Bye rectangle...")

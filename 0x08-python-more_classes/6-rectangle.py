@@ -30,14 +30,14 @@ class Rectangle():
     def height(self, value):
         '''set'''
         if isinstance(value, int):
-            if vlaue < 0:
+            if value < 0:
                 raise ValueError("height must be >= 0")
             self.__height = value
         else:
             raise TypeError("height must be an integer")
 
     def area(self):
-        ''''returns the rectangle area'''
+        '''returns the rectangle area'''
         return (self.__width * self.__height)
 
     def perimeter(self):
@@ -58,7 +58,7 @@ class Rectangle():
             raise ValueError("width and height cannot equal 0")
             return ''
         rectangle_representation = ('#' * self.__width + '\n') * self.__height
-        return (rectangle_representation)
+        return (rectangle_representation.strip('\n'))
 
     def __repr__(self):
         '''return a string representation of the rectangle
@@ -67,5 +67,5 @@ class Rectangle():
 
     def __del__(self):
         '''instance of Rectangle is deleted'''
-        return ("Bye rectangle...")
         type(self).number_of_instances -= 1
+        return ("Bye rectangle...")

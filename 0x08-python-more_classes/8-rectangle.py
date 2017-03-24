@@ -16,7 +16,7 @@ class Rectangle():
     def width(self, value):
         '''set'''
         if isinstance(value, int):
-            if vlaue < 0:
+            if value < 0:
                 raise ValueError("width must be >= 0")
             self.__width = value
         else:
@@ -31,7 +31,7 @@ class Rectangle():
     def height(self, value):
         '''set'''
         if isinstance(value, int):
-            if vlaue < 0:
+            if value < 0:
                 raise ValueError("height must be >= 0")
             self.__height = value
         else:
@@ -61,15 +61,15 @@ class Rectangle():
         '''Instantiation'''
         self.width = width
         self.height = height
-        type(self).number_of_instances += 1
+        self.number_of_instances += 1
 
     def __str__(self):
         '''print() and str() should print the rectangle with the character #'''
         if self.__width == 0 or self.__height == 0:
             raise ValueError("width and height cannot equal 0")
             return ''
-        rectangle_representation = ('#' * self.__width + '\n') * self.__height
-        return (rectangle_representation.strip('\n'))
+        rec = (str(self.print_symbol) * self.__width + '\n') * self.__height
+        return (rec.strip('\n'))
 
     def __repr__(self):
         '''return a string representation of the rectangle to
@@ -78,5 +78,5 @@ class Rectangle():
 
     def __del__(self):
         '''instance of Rectangle is deleted'''
+        self.number_of_instances -= 1
         return ("Bye rectangle...")
-        type(self).number_of_instances -= 1

@@ -54,4 +54,4 @@ class Rectangle():
             raise ValueError("width and height cannot equal 0")
             return ''
         rectangle_representation = ('#' * self.__width + '\n') * self.__height
-        return (rectangle_representation)
+        return (rectangle_representation.strip('\n'))

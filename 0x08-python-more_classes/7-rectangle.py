@@ -58,7 +58,7 @@ class Rectangle():
         if self.__width == 0 or self.__height == 0:
             raise ValueError("width and height cannot equal 0")
             return ''
-        rectangle_representation = ('#' * self.__width + '\n') * self.__height
+        rectangle_representation = (type(self).print_symbol * self.__width + '\n') * self.__height
         return (rectangle_representation.strip('\n'))
 
     def __repr__(self):
@@ -68,5 +68,5 @@ class Rectangle():
 
     def __del__(self):
         '''instance of Rectangle is deleted'''
-        return ("Bye rectangle...")
         type(self).number_of_instances -= 1
+        return ("Bye rectangle...")

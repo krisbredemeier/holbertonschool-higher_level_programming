@@ -8,14 +8,14 @@ import json
 def get_json(url):
     response = urllib2.urlopen(url)
     data = response.read().decode("utf-8")
-    return json.loads(data)
-    commits = data[0]['commit']
+    commits = json.loads(data)
+
+    # print commits
 
     for commit in commits:
-        print commit['commit']
+        print (commit.get('sha'))
 
 url= "https://api.github.com/repos/holbertonschool/Betty/commits"
 print(get_json(url))
-z
 
 # curl -i https://github.com/holbertonschool/Betty

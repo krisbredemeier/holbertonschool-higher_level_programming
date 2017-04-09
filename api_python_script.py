@@ -15,5 +15,8 @@ def get_json(url):
     data = response.read().decode("utf-8")
     return json.loads(data)
 
-url= "https://github.com/holbertonschool/Betty"
+url= "https://api.github.com/repos/holbertonschool/Betty/commits"
 print(get_json(url))
+
+
+# curl -i https://github.com/holbertonschool/Betty

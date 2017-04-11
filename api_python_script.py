@@ -2,20 +2,19 @@
 
 import urllib2
 import json
-
-
+import requests
 
 def get_json(url):
-    response = urllib2.urlopen(url)
-    data = response.read().decode("utf-8")
-    commits = json.loads(data)
-
-    # print commits
+    response = requests.get(url)
+    commits = response.json()
 
     for commit in commits:
-        print (commit.get('sha'))
+        print("id = {}, message = {}, date = {}, name = {}".format(
+        commit.get('sha'),
+        commit.get('commit').get('message'),
+        commit.get('commit').get('author').get('date'),
+        commit.get('commit').get('author').get('name')))
+
 
 url= "https://api.github.com/repos/holbertonschool/Betty/commits"
-print(get_json(url))
-
-# curl -i https://github.com/holbertonschool/Betty
+get_json(url)

@@ -1,23 +1,11 @@
 #!/usr/bin/ruby
-require 'rubygems'
+require "httpclient"
 require 'json'
-require 'pp'
 
+extheaders = {
+  'User-Agent' => 'Holberton_School',
+  'Authorization' => 'token 5c6c68c5ed0e2184e7abf0d742de9f56e6953d61'
+}
 
-#file = File.read('ruby.json')
-#data_hash = JSON.parse('ruby.json')
-json = File.read('ruby.json')
-obj = JSON.parse(json)
-
-
-pp obj
-
-
-
-
-
-
-#extheaders = {
-#  'User-Agent' => 'Holberton_School',
-#  'Authorization' => 'token 5c6c68c5ed0e2184e7abf0d742de9f56e6953d61'
-#}
+clnt = HTTPClient.new
+puts clnt.get_content('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')

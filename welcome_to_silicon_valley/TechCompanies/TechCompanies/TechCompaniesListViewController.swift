@@ -14,8 +14,7 @@ class TechCompaniesListViewController: UITableViewController {
     var techCompanyList: [Entity]!
 
     var sectionNames: [String] = ["Schools", "Tech Companies"]
-//    let techDetailSegue = "techDetailSegue"
-//    var toggle:Int = 0
+    let techDetailSegue = "techDetailSegue"
 
 
 
@@ -25,12 +24,10 @@ class TechCompaniesListViewController: UITableViewController {
 
         self.title = "Entity list"
 
-        self.schoolList = EntitiesHelper.getSchools()
-        self.techCompanyList = EntitiesHelper.getTechCompanies()
+        schoolList = EntitiesHelper.getSchools()
+        techCompanyList = EntitiesHelper.getTechCompanies()
 
 
-
-//        self.title = "Schools and Tech Companies"
 //        var rightBarBtn = UIBarButtonItem(title: "Action", style: .Plain, target: self, action: nil)
 //        self.navigationController?.navigationItem.setRightBarButtonItem(rightBarBtn, animated: #selector(go))
 //
@@ -41,7 +38,6 @@ class TechCompaniesListViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,7 +47,7 @@ class TechCompaniesListViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return self.sectionNames.count
+        return sectionNames.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,37 +65,37 @@ class TechCompaniesListViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCellWithIdentifier("techCell", forIndexPath: indexPath)
 
         if indexPath.section == 1 {
             cell.textLabel?.text = techCompanyList[indexPath.row].name
             cell.detailTextLabel?.text = "I love working at " + techCompanyList[indexPath.row].name
-
         }
+
         else {
             cell.textLabel?.text = schoolList[indexPath.row].name
-            cell.detailTextLabel?.text = "I love styding at " + schoolList[indexPath.row].name
+            cell.detailTextLabel?.text = "I love studying at " + schoolList[indexPath.row].name
         }
-        return cell
-   }
 
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//                // Get the new view controller using segue.destinationViewController.
-//                // Pass the selected object to the new view controller.
-//        
-//        if segue.identifier == "techDetailSegue" {
-//            let detailView = segue.destinationViewController as? TechCompanyDetailViewController
-//            if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell){
-//                if indexPath.section == 0 && self.toggle == 0 {
-//                    detailView?.entity = self.techCompanyList[indexPath.row]
-//                } else if indexPath.section == 1 && self.toggle == 0 {
-//                    detailView?.entity = self.schoolList[indexPath.row]
-//                } else {
-//                    detailView!.entity = nil
-//                }
-//            }
-//        }
-//    }
+        return cell
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+                // Get the new view controller using segue.destinationViewController.
+                // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "techDetailSegue" {
+            let detailView = segue.destinationViewController as? TechCompanyDetailViewController
+
+            let sectionSelected = tableView.indexPathForSelectedRow?.section
+            let rowSelected = tableView.indexPathForSelectedRow?.row
+            let list = sectionSelected == 1 ? techCompanyList : schoolList
+
+            detailView?.entity = list[rowSelected!]
+
+       }
+    }
+
 
 
     /*

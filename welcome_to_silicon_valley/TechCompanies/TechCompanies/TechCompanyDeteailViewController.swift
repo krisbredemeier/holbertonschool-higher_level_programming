@@ -7,15 +7,17 @@
 
 import UIKit
 
-class DeteailsViewController: UIViewController {
+class TechCompanyDetailViewController: UIViewController {
 
     // connect lable and image
 
-    
-    var schoolList:[Entity]!
-    var techCompanyList:[Entity]!
+    var entity:Entity!
 
-    
+
+    @IBOutlet weak var lable_entity: UILabel!
+    @IBOutlet weak var image_entity: UIImageView!
+
+
 
     //var label = UILabel(frame: CGectMake(10, 10, 200, 21))
     //    self.view.addSubView(label)
@@ -23,16 +25,13 @@ class DeteailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        techCompanyList = EntitiesHelper.getTechCompanies()
-        schoolList = EntitiesHelper.getSchools()
+        if self.entity != nil {
 
-//        if self.entity != nil {
-//
-//            self.title = Entity.name
-//            self.lblEntity.text = Entity.town
-//            self.imgEntity.image = UIImage(imageLiteral: entity.imageName)
-//        }
-
+            self.title = entity.name
+            self.lable_entity.text = entity.town
+            self.image_entity.image = UIImage(imageLiteral: entity.imageName)
+            self.image_entity.contentMode = .ScaleAspectFit
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -45,39 +44,6 @@ class DeteailsViewController: UIViewController {
 
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-
-        if segue.identifier == "techSg" {
-            let destVC = segue.destinationViewController as? DeteailsViewController
-
-            let sectionSelected = tableView.indexPathForSelectedRow.section
-
-            let rowSeleccted = tableView.indexPathForSelectedRow?.row
-
-            let list = sectionSelected == 0 ?techCompanyList : schoolList
-
-                destVC?.entity = list[rowSeleccted!]
-        }
-
-    }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-
-    }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-    }
-
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-    }
 
 
 }

@@ -12,6 +12,10 @@
 		D9D4C86C1D08E82C00B9BDF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D4C86A1D08E82C00B9BDF9 /* Main.storyboard */; };
 		D9D4C86E1D08E82C00B9BDF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9D4C86D1D08E82C00B9BDF9 /* Assets.xcassets */; };
 		D9D4C8711D08E82C00B9BDF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9D4C86F1D08E82C00B9BDF9 /* LaunchScreen.storyboard */; };
+		D9D4C87B1D08E87000B9BDF9 /* TechCompaniesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4C8781D08E87000B9BDF9 /* TechCompaniesListViewController.swift */; };
+		D9D4C87C1D08E87000B9BDF9 /* TechCompanyDeteailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4C8791D08E87000B9BDF9 /* TechCompanyDeteailViewController.swift */; };
+		D9D4C8801D08E87F00B9BDF9 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4C87D1D08E87F00B9BDF9 /* Entity.swift */; };
+		D9D4C8811D08E87F00B9BDF9 /* EntitiesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D4C87E1D08E87F00B9BDF9 /* EntitiesHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		D9D4C86D1D08E82C00B9BDF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9D4C8701D08E82C00B9BDF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9D4C8721D08E82C00B9BDF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9D4C8781D08E87000B9BDF9 /* TechCompaniesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechCompaniesListViewController.swift; sourceTree = "<group>"; };
+		D9D4C8791D08E87000B9BDF9 /* TechCompanyDeteailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechCompanyDeteailViewController.swift; sourceTree = "<group>"; };
+		D9D4C87D1D08E87F00B9BDF9 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		D9D4C87E1D08E87F00B9BDF9 /* EntitiesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,8 @@
 		D9D4C8651D08E82C00B9BDF9 /* TechCompanies */ = {
 			isa = PBXGroup;
 			children = (
+				D9D4C87F1D08E87F00B9BDF9 /* Models */,
+				D9D4C87A1D08E87000B9BDF9 /* ViewControllers */,
 				D9D4C8661D08E82C00B9BDF9 /* AppDelegate.swift */,
 				D9D4C8681D08E82C00B9BDF9 /* ViewController.swift */,
 				D9D4C86A1D08E82C00B9BDF9 /* Main.storyboard */,
@@ -62,6 +72,26 @@
 				D9D4C8721D08E82C00B9BDF9 /* Info.plist */,
 			);
 			path = TechCompanies;
+			sourceTree = "<group>";
+		};
+		D9D4C87A1D08E87000B9BDF9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9D4C8781D08E87000B9BDF9 /* TechCompaniesListViewController.swift */,
+				D9D4C8791D08E87000B9BDF9 /* TechCompanyDeteailViewController.swift */,
+			);
+			name = ViewControllers;
+			path = ../../../TechCompanies/TechCompanies;
+			sourceTree = "<group>";
+		};
+		D9D4C87F1D08E87F00B9BDF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D9D4C87D1D08E87F00B9BDF9 /* Entity.swift */,
+				D9D4C87E1D08E87F00B9BDF9 /* EntitiesHelper.swift */,
+			);
+			name = Models;
+			path = ../../../TechCompanies/TechCompanies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D4C8691D08E82C00B9BDF9 /* ViewController.swift in Sources */,
+				D9D4C8801D08E87F00B9BDF9 /* Entity.swift in Sources */,
+				D9D4C8811D08E87F00B9BDF9 /* EntitiesHelper.swift in Sources */,
 				D9D4C8671D08E82C00B9BDF9 /* AppDelegate.swift in Sources */,
+				D9D4C87B1D08E87000B9BDF9 /* TechCompaniesListViewController.swift in Sources */,
+				D9D4C87C1D08E87000B9BDF9 /* TechCompanyDeteailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,10 +284,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TechCompanies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = krizby.TechCompanies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -261,10 +298,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TechCompanies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = krizby.TechCompanies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

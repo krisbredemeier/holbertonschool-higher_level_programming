@@ -1,6 +1,6 @@
 //
-//  TechCompaniesVC.swift
-//  TechCompanies
+//  CompaniesListViewController.swift
+//  SiliconValleyCompanies
 //
 //  Created by Kristine Bredemeier on 5/27/16.
 //  Copyright © 2016 Kristine Bredemeier. All rights reserved.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TechCompaniesVC: UITableViewController {
+class CompaniesListViewController: UITableViewController {
+
+    var companies = TechCompaniesHelper.getTechCompanies()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +31,27 @@ class TechCompaniesVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.companies.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CompanyCell", forIndexPath: indexPath)
+        if (companies[indexPath.row] == "Holberton")
+        {
+            cell.detailTextLabel?.text = "I love studying"
+        }
+        else
+        {
+            cell.detailTextLabel?.text = "I love working"
+        }
+        cell.textLabel?.text = companies[indexPath.row]
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

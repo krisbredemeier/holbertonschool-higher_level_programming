@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
-require 'rubygems'
 require 'httpclient'
+require 'json'
 
 File.open('/tmp/34', 'w') do |file|
 clnt = HTTPClient.new

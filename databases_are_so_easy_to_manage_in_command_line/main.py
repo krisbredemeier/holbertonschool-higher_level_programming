@@ -292,9 +292,25 @@ def note_average_by_school():
         print "School not found"
 
 
-# def top_batch():
-#
-# def top_school():
+def top_batch():
+    try:
+        if len(sys.argv) == 2:
+            Batch.get(Batch.id == sys.argv[2])
+            print batch
+         
+    except Batch.DoesNotExist:
+        print "Batch not found"
+
+def top_school():
+    try:
+        if len(sys.argv) ==2:
+            School.get(School.id == sys.argv[2])
+            print school
+        elif len(sys.argv) == 3:
+            School.get(School.id == sys.argv[2], School.subject == sys.argv[3])
+            print school
+    except School.DoesNotExist:
+        print "School not found"
 
 if len(sys.argv) < 2:
     print "please enter an action"

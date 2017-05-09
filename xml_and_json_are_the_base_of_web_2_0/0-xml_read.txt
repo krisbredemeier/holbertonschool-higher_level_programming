@@ -1,0 +1,17 @@
+
+Write a file 0-xml_read.txt where you put all answers of those questions:
+
+1) How many catalog_item elements in the XML?
+        2
+2) How many size elements in catalog_item where the gender="Women's" in the XML?
+        4
+3) What's the value of the first color_swatch for a Women's Medium item?
+        Red
+4) What's the price of the Men's item?
+        39.95
+5) How many different image value are present in the XML?
+        15
+6) What's the name of the first children of a catalog_item element?
+        item number
+7) What's the name of the first children of a size element?
+        color_swatch

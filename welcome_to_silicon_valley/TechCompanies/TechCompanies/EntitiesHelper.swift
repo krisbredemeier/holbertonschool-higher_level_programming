@@ -1,9 +1,9 @@
 //
 //  EntitiesHelper.swift
-//  TechCompanies
+//  SiliconValleyCompanies
 //
-//  Created by Sravanthi Rani Sinha on 5/27/16.
-//  Copyright © 2016 Sravanthi Rani Sinha. All rights reserved.
+//  Created by Kristine Bredemeier on 5/27/16.
+//  Copyright © 2016 Kristine Bredemeier. All rights reserved.
 //
 
 import Foundation
@@ -21,8 +21,7 @@ class EntitiesHelper{
         return listOfSchool
     }
 
-    static func getTechCompanies() -> [Entity]!
-    {
+    static func getTechCompanies() -> [Entity]!{
         if listOfTechCompany.isEmpty{
             listOfSchool.append(Entity(name: "Linkedin", town: "San Francisco", imageName: "linkedin", type: .TechCompany))
             listOfSchool.append(Entity(name: "Docker", town: "San Francisco", imageName: "docker", type: .TechCompany))
@@ -33,8 +32,4 @@ class EntitiesHelper{
         }
         return listOfTechCompany
     }
-
-
-
-
 }

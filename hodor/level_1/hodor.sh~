@@ -1,0 +1,4 @@
+while :
+do
+curl 'http://173.246.108.142/level1.php' -H 'Accept-Encoding: gzip, deflate' -H 'Origin: http://173.246.108.142' --data 'id=34&holdthedoor=Submit' --compressed
+done
